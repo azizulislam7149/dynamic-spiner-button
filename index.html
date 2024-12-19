@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic function</title>
+    
+<link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.22/dist/full.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <main>
+       <div class="m-3 flex justify-center">
+        <button class="btn text-2xl font-bold ">View button</button>
+       </div>
+        <div id="button-container" class="flex justify-between w-11/12 mx-auto ">
+           
+        </div>
+        <div id="load-spiner" class="hidden">
+            <div class="relative flex justify-center items-center">
+                <div class="absolute animate-spin rounded-full h-32 w-32 border-t-4 border-b-4 border-purple-500"></div>
+                <img src="https://www.svgrepo.com/show/509001/avatar-thinking-9.svg"  class="rounded-full h-28 w-28">
+            </div>
+        </div>
+
+        <div id="pets-animal-by-category" class="grid grid-cols-4 gap-3 mt-6 ">
+
+        </div>
+    </main>
+    <script src="js/utilities.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
