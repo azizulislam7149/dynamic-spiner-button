@@ -27,6 +27,7 @@ const petsByCategory =async (category)=>{
     
     setTimeout(()=>{
         displayAllPets(data.data)
+        storedPetdata = data.data;
         loadSpiner(false);
     },2000)
     
@@ -38,6 +39,7 @@ const allPets=async()=>{
    
     setTimeout(()=>{
         displayAllPets(data.pets)
+        storedPetdata = data.pets
         loadSpiner(false)
     },2000)
    
@@ -48,11 +50,24 @@ allPets()
     const displayAllPets=(petsAnimals)=>{
       
     const petsAnimalContainer = document.getElementById('pets-animal-by-category');
-        petsAnimalContainer.innerHTML = '';
+        // petsAnimalContainer.innerHTML = '';
+        if(petsAnimals.lenhth === 0 ){
+            petsAnimalContainer.classList.remove('grid');
+            petsAnimalContainer.innerHTML = `
+            <div class = 'bg-gray-400 p-20 rounded-xl text-center space-y-4'>
+                <h1>bird Data</h1>
+            </div>
+            `
+
+            return
+        }
+        else{
+            petsAnimalContainer.classList.add('grid');
+        }
     petsAnimals.forEach(item=>{
    
     const petsDiv = document.createElement('div');
-    petsDiv.classList.add('rounded-lg' ,'border-black')
+    // petsDiv.classList.add('rounded-lg' ,'border-black')
     petsDiv.innerHTML=`
     <img src="${item.image} "alt=""
     <h1>${item.category} </h1>
@@ -60,8 +75,27 @@ allPets()
     <p>${item.date_of_birth} </p>
     <p>${item.price} </p>
     <p>${item.gender} </p>
+    <hr></hr>
+    <div class= 'flex gap-4'>
+        <button onclick="likeBtn('${item.image}')" class='btn'>Like</button>
+        <button onclick="adoptModal(this)" class='btn'>Adopt</button>
+        <button onclick="petsByDetails('${item.petId}')" class='btn'>Details</button>
+    </div>
     `
     petsAnimalContainer.appendChild(petsDiv)
 })
 }
- 
+const likeBtn =(imgUrl)=>{
+  const likebtnContainer = document.getElementById('like-btn');
+  const div = document.createElement('div');
+  div.innerHTML = `<img class ='rounded-lg w-30 h-16' src = "${imgUrl}" alt= "" />`
+   likebtnContainer.appendChild(div);
+}
+ const sort = ()=>{
+    loadSpiner(true)
+    const sortedData = storedPetdata.sort((a,b)=>b.price - a.price);
+    setTimeout(()=>{
+        loadSpiner(false)
+        displayAllPets(sortedData)
+    },2000)
+ }

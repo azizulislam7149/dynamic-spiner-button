@@ -10,8 +10,28 @@
 </head>
 <body>
     <main>
+        <header>
+            <nav class="w-11/12 mx-auto flex justify-between">
+                <div>
+                    <h1>Peddy</h1>
+                </div>
+                <div>
+                    <ul class="flex gap-3">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="">Shop</a></li>
+                        <li><a href="">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h1>User</h1>
+                </div>
+            </nav>
+        </header>
        <div class="m-3 flex justify-center">
-        <button class="btn text-2xl font-bold ">View button</button>
+       <a href="#adopt-friend-container"> <button class="btn text-2xl font-bold ">View button</button></a>
+       </div>
+       <div class="flex justify-center m-4">
+        <h1 id="adopt-friend-container">Adopt your best friend</h1>
        </div>
         <div id="button-container" class="flex justify-between w-11/12 mx-auto ">
            
@@ -22,10 +42,60 @@
                 <img src="https://www.svgrepo.com/show/509001/avatar-thinking-9.svg"  class="rounded-full h-28 w-28">
             </div>
         </div>
-
-        <div id="pets-animal-by-category" class="grid grid-cols-4 gap-3 mt-6 ">
-
+        <div class="flex justify-between my-3">
+            <div>
+                <h2>best deal for You</h2>
+            </div>
+            <div>
+                <button onclick="sort()" class="btn">Sort by price</button>
+            </div>
         </div>
+        <div class="flex justify-between">
+            <div id="pets-animal-by-category" class="grid grid-cols-3 gap-3 mt-6 w-3/4">
+            </div>
+            <div id="like-btn" class="grid grid-cols-2 border rounded-lg p-4 gap-2 h-fit">
+               
+            </div>
+        </div>
+        <!-- details modal -->
+         <!-- Open the modal using ID.showModal() method -->
+
+<!-- Open the modal using ID.showModal() method -->
+
+    <button class="btn" onclick="showModal()">open modal</button>
+<dialog id="my_modal_4" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+   <div id="modals-container"></div>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+
+        <!-- details modal -->
+       
+        <!-- adopt modal -->
+         <!-- Open the modal using ID.showModal() method -->
+
+<dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Congratulation</h3>
+    <p class="py-4">Adoption will be done in</p>
+    <p id="coundown-container">3</p>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+        <!-- adopt modal -->
+
+        
     </main>
     <script src="js/utilities.js"></script>
     <script src="js/main.js"></script>
